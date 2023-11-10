@@ -1,0 +1,17 @@
+#code
+def analyze_email_address(email):
+    total_char = len(email)
+
+    uppercase_perc = round((sum(char.isupper() for char in email) / total_char) * 100, 3)
+    lowercase_perc = round((sum(char.islower() for char in email) / total_char) * 100, 3)
+    digit_perc = round((sum(char.isdigit() for char in email) / total_char) * 100, 3)
+    other_perc = round(100 - (uppercase_perc + lowercase_perc + digit_perc), 3)
+
+    # Return only the formatted percentages without labels
+    return f"{uppercase_perc}%, {lowercase_perc}%, {digit_perc}%, {other_perc}%"
+
+email_i = input()
+result = analyze_email_address(email_i)
+
+# Print the formatted percentages
+print(result)
